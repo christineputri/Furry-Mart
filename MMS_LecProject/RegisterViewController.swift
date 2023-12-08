@@ -173,32 +173,48 @@ class RegisterViewController: UIViewController {
             return
         }
 
-        // Store user data in the AppDelegate
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.userData = [
-                "name": username!,
-                "email": email!,
-                "password": password!
-            ]
+        // Authentication using Firebase
+        guard let email = emailFieldRegister.text,
+              let password = passwordFieldRegister.text else {
+            return
         }
 
-        if let dataSaved = NSEntityDescription.entity(forEntityName: "User", in: context) {
-            let newData = NSManagedObject(entity: dataSaved, insertInto: context)
-            newData.setValue(email, forKey: "email")
-            newData.setValue(username, forKey: "name")
-            newData.setValue(password, forKey: "password")
-        }
+        Auth.auth().createUser(withEmail: email, password: password) { [self] (firebaseResult, error) in
+            if let e = error {
+                print("Firebase authentication error: \(e.localizedDescription)")
+                // Handle authentication error (e.g., show an alert)
+                return
+            } else {
+                // Authentication successful, continue with your registration logic
 
-        do {
-            try context.save()
-            print("Save Success")
-        } catch {
-            print("Register error: \(error.localizedDescription)")
-        }
+                // Store user data in the AppDelegate
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                    appDelegate.userData = [
+                        "name": username!,
+                        "email": email,
+                        "password": password
+                    ]
+                }
 
-        if let nextView = storyboard?.instantiateViewController(identifier: "loginView") {
-            let loginView = nextView as! LoginViewController
-            navigationController?.setViewControllers([loginView], animated: true)
+                if let dataSaved = NSEntityDescription.entity(forEntityName: "User", in: self.context) {
+                    let newData = NSManagedObject(entity: dataSaved, insertInto: self.context)
+                    newData.setValue(email, forKey: "email")
+                    newData.setValue(username, forKey: "name")
+                    newData.setValue(password, forKey: "password")
+                }
+
+                do {
+                    try self.self.context.save()
+                    print("Save Success")
+                } catch {
+                    print("Register error: \(error.localizedDescription)")
+                }
+
+                if let nextView = storyboard?.instantiateViewController(identifier: "loginView") {
+                    let loginView = nextView as! LoginViewController
+                    navigationController?.setViewControllers([loginView], animated: true)
+                }
+            }
         }
     }
 
@@ -235,3 +251,4 @@ class RegisterViewController: UIViewController {
         context = appDelegate.persistentContainer.viewContext
     }
 }
+
