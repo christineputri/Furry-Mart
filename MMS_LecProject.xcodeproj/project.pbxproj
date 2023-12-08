@@ -10,6 +10,13 @@
 		05656D862B23076D002AF0BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05656D852B23076D002AF0BA /* GoogleService-Info.plist */; };
 		05656D892B230AF5002AF0BA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 05656D882B230AF5002AF0BA /* FirebaseAnalytics */; };
 		05656D8B2B230AF5002AF0BA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 05656D8A2B230AF5002AF0BA /* FirebaseAnalyticsSwift */; };
+		05656D9B2B232204002AF0BA /* AdminSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656D9A2B232204002AF0BA /* AdminSuccessViewController.swift */; };
+		05656D9D2B232300002AF0BA /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656D9C2B232300002AF0BA /* CustomerViewController.swift */; };
+		05656D9F2B232344002AF0BA /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656D9E2B232344002AF0BA /* AdminViewController.swift */; };
+		05656DA12B23237B002AF0BA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656DA02B23237B002AF0BA /* ProductTableViewCell.swift */; };
+		05656DA32B2323AB002AF0BA /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656DA22B2323AB002AF0BA /* CheckoutViewController.swift */; };
+		05656DA52B232407002AF0BA /* FormAddDataAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656DA42B232407002AF0BA /* FormAddDataAdminViewController.swift */; };
+		05656DA72B232430002AF0BA /* EditTableDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656DA62B232430002AF0BA /* EditTableDataViewController.swift */; };
 		057019292B22F9FB003F0849 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057019282B22F9FB003F0849 /* User.swift */; };
 		05E9EEDF2B2163AB00C5E7C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9EEDE2B2163AB00C5E7C8 /* AppDelegate.swift */; };
 		05E9EEE12B2163AB00C5E7C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9EEE02B2163AB00C5E7C8 /* SceneDelegate.swift */; };
@@ -24,6 +31,13 @@
 
 /* Begin PBXFileReference section */
 		05656D852B23076D002AF0BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05656D9A2B232204002AF0BA /* AdminSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSuccessViewController.swift; sourceTree = "<group>"; };
+		05656D9C2B232300002AF0BA /* CustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
+		05656D9E2B232344002AF0BA /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		05656DA02B23237B002AF0BA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		05656DA22B2323AB002AF0BA /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		05656DA42B232407002AF0BA /* FormAddDataAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddDataAdminViewController.swift; sourceTree = "<group>"; };
+		05656DA62B232430002AF0BA /* EditTableDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableDataViewController.swift; sourceTree = "<group>"; };
 		057019282B22F9FB003F0849 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05E9EEDB2B2163AB00C5E7C8 /* MMS_LecProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMS_LecProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E9EEDE2B2163AB00C5E7C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +96,13 @@
 				05E9EEF52B218F4900C5E7C8 /* LoginViewController.swift */,
 				05E9EEF72B218F7800C5E7C8 /* RegisterViewController.swift */,
 				057019282B22F9FB003F0849 /* User.swift */,
+				05656D9A2B232204002AF0BA /* AdminSuccessViewController.swift */,
+				05656D9C2B232300002AF0BA /* CustomerViewController.swift */,
+				05656D9E2B232344002AF0BA /* AdminViewController.swift */,
+				05656DA02B23237B002AF0BA /* ProductTableViewCell.swift */,
+				05656DA22B2323AB002AF0BA /* CheckoutViewController.swift */,
+				05656DA42B232407002AF0BA /* FormAddDataAdminViewController.swift */,
+				05656DA62B232430002AF0BA /* EditTableDataViewController.swift */,
 			);
 			path = MMS_LecProject;
 			sourceTree = "<group>";
@@ -165,13 +186,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05656DA52B232407002AF0BA /* FormAddDataAdminViewController.swift in Sources */,
+				05656D9B2B232204002AF0BA /* AdminSuccessViewController.swift in Sources */,
 				05E9EEE32B2163AB00C5E7C8 /* ViewController.swift in Sources */,
 				05E9EEDF2B2163AB00C5E7C8 /* AppDelegate.swift in Sources */,
+				05656D9D2B232300002AF0BA /* CustomerViewController.swift in Sources */,
+				05656DA32B2323AB002AF0BA /* CheckoutViewController.swift in Sources */,
 				05E9EEE92B2163AB00C5E7C8 /* MMS_LecProject.xcdatamodeld in Sources */,
 				05E9EEF82B218F7800C5E7C8 /* RegisterViewController.swift in Sources */,
 				05E9EEF62B218F4900C5E7C8 /* LoginViewController.swift in Sources */,
+				05656DA12B23237B002AF0BA /* ProductTableViewCell.swift in Sources */,
 				05E9EEE12B2163AB00C5E7C8 /* SceneDelegate.swift in Sources */,
+				05656D9F2B232344002AF0BA /* AdminViewController.swift in Sources */,
 				057019292B22F9FB003F0849 /* User.swift in Sources */,
+				05656DA72B232430002AF0BA /* EditTableDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
