@@ -1,16 +1,9 @@
-//
-//  RegisterViewController.swift
-//  MMS_LecProject
-//
-//  Created by prk on 07/12/23.
-//
-
 import UIKit
 import CoreData
 
 class RegisterViewController: UIViewController {
     
-    var arrUser: [String] = []
+    var userData: [String] = []
     var context: NSManagedObjectContext!
 
     @IBOutlet weak var nameFieldRegister: UITextField!
@@ -26,8 +19,58 @@ class RegisterViewController: UIViewController {
         let password = passwordFieldRegister.text
         let confpass = confPassFieldRegister.text
         
-        if username!.isEmpty || email!.isEmpty || password!.isEmpty || confpass!.isEmpty {
+        if username!.isEmpty || email!.isEmpty || password!.isEmpty {
             alertAction(title: "Warning", message: "Field must be filled")
+        }
+        
+        if username!.count <= 2 {
+            alertAction(title: "Warning", message: "Name must be more than 2 characters")
+        }
+        
+        if email!.count <= 4 {
+            alertAction(title: "Warning", message: "Email must be more than 4 characters")
+        }
+        
+        if !(email!.contains("@") && email!.hasSuffix(".com")) {
+            alertAction(title: "Warning", message: "Email must contain @ and ended with .com")
+        }
+        
+        if password!.count <= 5 {
+            alertAction(title: "Warning", message: "Password must be more than 5 characters")
+        }
+        
+        do {
+            let valid = try password!.contains(Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{5,}$"))
+            
+            if !valid {
+                alertAction(title: "Warning", message: "Password must be at least 1 alphabet and 1 number")
+            }
+        } catch {
+            print("password error")
+        }
+        
+        if confpass != password {
+            alertAction(title: "Warning", message: "Password didn't match")
+        }
+        
+        let dataSaved = NSEntityDescription.entity(forEntityName: "User", in: context)
+        if (dataSaved != nil) {
+            let newData = NSManagedObject(entity: dataSaved!, insertInto: context)
+            newData.setValue(email, forKey: "email")
+            newData.setValue(username, forKey: "name")
+            newData.setValue(password, forKey: "password")
+        }
+
+        do{
+            try context.save()
+            print("save Success")
+        } catch {
+            print("register error")
+        }
+        
+        if let nextView = storyboard?.instantiateViewController(identifier: "loginView") {
+            let loginView = nextView as! LoginViewController
+            navigationController?.setViewControllers([loginView], animated: true)
         }
     }
     
@@ -43,7 +86,7 @@ class RegisterViewController: UIViewController {
         do {
             let result = try context.fetch(request) as! [NSManagedObject]
             for data in result {
-                arrUser.append(data.value(forKey: "email") as! String)
+                userData.append(data.value(forKey: "email") as! String)
             }
         } catch {
             print("Data fetch failed")
