@@ -23,7 +23,19 @@ class FormAddDataAdminViewController: UIViewController, UIImagePickerControllerD
     var imageTemp = "mobile_legend"
     
     @IBAction func addDataToDatabase(_ sender: Any) {
-        createData()
+        if(titleTextField.text!.isEmpty && descriptionTextField.text!.isEmpty && (Int(priceTextField.text!) ?? 0 <= 0) && categoryTextField.text!.isEmpty){
+            let alert = UIAlertController(title: "Alert", message: "title, category, price, and description field must be filled", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "ok", style: .default)
+            alert.addAction(alertAction)
+            present(alert, animated: true)
+        }
+        else{
+            createData()
+            if let nextView = storyboard?.instantiateViewController(identifier: "success_page") {
+                let rootView = nextView as! AdminSuccessViewController
+                navigationController?.setViewControllers([rootView], animated: true)
+            }
+        }
     }
     
     func createData() {

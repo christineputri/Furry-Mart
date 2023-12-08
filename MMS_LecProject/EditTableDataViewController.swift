@@ -17,9 +17,13 @@ class EditTableDataViewController: UIViewController {
     @IBAction func onSavedBtn(_ sender: Any) {
         
     }
-    
+    var dataCellTable: dataItem?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("data dari prepare: \(String(describing: dataCellTable))")
+        titleUpdateData.text = dataCellTable?.titleProduct ?? "Mobile Legend"
+        descUpdateData.text = dataCellTable?.description ?? "game FPS"
+        priceUpdateData.text = String(dataCellTable?.priceProduct ?? 1000)
+        categoryUpdateData.text = dataCellTable?.categoryProduct.rawValue ?? CategoryGame.FPS.rawValue
     }
 }
