@@ -21,9 +21,9 @@ class EditTableDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("data dari prepare: \(String(describing: dataCellTable))")
-        titleUpdateData.text = dataCellTable?.titleProduct ?? "Mobile Legend"
-        descUpdateData.text = dataCellTable?.description ?? "game FPS"
+        titleUpdateData.text = dataCellTable?.titleProduct ?? "Golden Retriever"
+        descUpdateData.text = dataCellTable?.description ?? "pet"
         priceUpdateData.text = String(dataCellTable?.priceProduct ?? 1000)
-        categoryUpdateData.text = dataCellTable?.categoryProduct.rawValue ?? CategoryGame.FPS.rawValue
+        categoryUpdateData.text = dataCellTable?.categoryProduct.rawValue ?? CategoryPet.pet.rawValue
     }
 }

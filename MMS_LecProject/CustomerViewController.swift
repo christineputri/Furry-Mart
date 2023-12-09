@@ -33,10 +33,11 @@ class CustomerViewController: UIViewController, UITableViewDataSource, UITableVi
     var arr: [dataItem] = []
     
     func initData(){
-        arr.append(dataItem(priceProduct: 2000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
-        arr.append(dataItem(priceProduct: 5000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
-        arr.append(dataItem(priceProduct: 7000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
-        arr.append(dataItem(priceProduct: 27000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
+        arr.append(dataItem(priceProduct: 2000000, titleProduct: "Golden Retriever", categoryProduct: CategoryPet.pet, description: "Family Friendly Dog", imageProduct: "golden-retriever"))
+        arr.append(dataItem(priceProduct: 70000, titleProduct: "Pedigree", categoryProduct: CategoryPet.food, description: "Dry Food for Dog", imageProduct: "pedigree"))
+        arr.append(dataItem(priceProduct: 30000, titleProduct: "Daily Probiotics", categoryProduct: CategoryPet.medicine, description: "For Dogs of All Sizes", imageProduct: "dog-vitamin"))
+        arr.append(dataItem(priceProduct: 12000, titleProduct: "Growppy", categoryProduct: CategoryPet.drink, description: "Milk for Dog", imageProduct: "dog-milk"))
+        arr.append(dataItem(priceProduct: 27000, titleProduct: "Nail Clipper", categoryProduct: CategoryPet.tools, description: "Pet Nail Clipper", imageProduct: "gunting-kuku"))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

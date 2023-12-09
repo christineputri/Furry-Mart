@@ -1,12 +1,12 @@
 import UIKit
 import CoreData
 
-protocol controlGameProduct {
+protocol controlPetProduct {
    func loadData()
 }
 
 
-class AdminViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, controlGameProduct {
+class AdminViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, controlPetProduct {
     
     @IBOutlet weak var namaAdmin: UILabel!
     var context: NSManagedObjectContext!
@@ -32,10 +32,11 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
     var arr: [dataItem] = []
     
     func initData(){
-        arr.append(dataItem(priceProduct: 2000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
-        arr.append(dataItem(priceProduct: 5000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
-        arr.append(dataItem(priceProduct: 7000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
-        arr.append(dataItem(priceProduct: 27000, titleProduct: "Mobile Legend", categoryProduct: CategoryGame.FPS, description: "Family Friendly Game", imageProduct: "mobile_legend"))
+        arr.append(dataItem(priceProduct: 2000000, titleProduct: "Golden Retriever", categoryProduct: CategoryPet.pet, description: "Family Friendly Dog", imageProduct: "golden-retriever"))
+        arr.append(dataItem(priceProduct: 70000, titleProduct: "Pedigree", categoryProduct: CategoryPet.food, description: "Dry Food for Dog", imageProduct: "pedigree"))
+        arr.append(dataItem(priceProduct: 30000, titleProduct: "Daily Probiotics", categoryProduct: CategoryPet.medicine, description: "For Dogs of All Sizes", imageProduct: "dog-vitamin"))
+        arr.append(dataItem(priceProduct: 12000, titleProduct: "Growppy", categoryProduct: CategoryPet.drink, description: "Milk for Dog", imageProduct: "dog-milk"))
+        arr.append(dataItem(priceProduct: 27000, titleProduct: "Nail Clipper", categoryProduct: CategoryPet.tools, description: "Pet Nail Clipper", imageProduct: "gunting-kuku"))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -43,17 +44,17 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func loadData() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "GameProduct")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PetProduct")
         do {
             let result = try context.fetch(request) as! [NSManagedObject]
             
             for data in result {
-                arr.append(dataItem(priceProduct: data.value(forKey: "productPrice") as! Int, titleProduct: data.value(forKey: "productName") as! String, categoryProduct: CategoryGame(rawValue: data.value(forKey: "productCategory") as! CategoryGame.RawValue) ?? CategoryGame.adventure, description: data.value(forKey: "productDesc") as! String, imageProduct: data.value(forKey: "productImage") as! String))
+                arr.append(dataItem(priceProduct: data.value(forKey: "productPrice") as! Int, titleProduct: data.value(forKey: "productName") as! String, categoryProduct: CategoryPet(rawValue: data.value(forKey: "productCategory") as! CategoryPet.RawValue) ?? CategoryPet.pet, description: data.value(forKey: "productDesc") as! String, imageProduct: data.value(forKey: "productImage") as! String))
             }
             
             tableViewAdmin.reloadData()
         } catch {
-            
+            print("Add error pas di bagian load data")
         }
     }
     
@@ -62,7 +63,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
         initData()
         tableViewAdmin.dataSource = self
         tableViewAdmin.delegate = self
-        namaAdmin.text = "Hello, Admin \(nama!)"
+        namaAdmin.text = "Hello, Admin \(nama ?? "Christine")"
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
@@ -78,6 +79,12 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let nextView = storyboard?.instantiateViewController(identifier: "rootView") {
             let rootView = nextView as! ViewController
             navigationController?.setViewControllers([rootView], animated: true)
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "edit_cell") as? EditTableDataViewController{
+            vc.dataCellTable = arr[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

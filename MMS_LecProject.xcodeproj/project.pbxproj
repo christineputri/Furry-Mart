@@ -12,6 +12,7 @@
 		0548D8AE2B2332EF000EC515 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0548D8AD2B2332EF000EC515 /* FirebaseAuth */; };
 		0548D8B32B2333AB000EC515 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0548D8B22B2333AB000EC515 /* data.swift */; };
 		0548D8B52B2334AA000EC515 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0548D8B42B2334A9000EC515 /* GoogleService-Info.plist */; };
+		0548D8B82B242D97000EC515 /* PetProduct.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0548D8B62B242D97000EC515 /* PetProduct.xcdatamodeld */; };
 		05656D9B2B232204002AF0BA /* AdminSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656D9A2B232204002AF0BA /* AdminSuccessViewController.swift */; };
 		05656D9D2B232300002AF0BA /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656D9C2B232300002AF0BA /* CustomerViewController.swift */; };
 		05656D9F2B232344002AF0BA /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05656D9E2B232344002AF0BA /* AdminViewController.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		0548D8B22B2333AB000EC515 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		0548D8B42B2334A9000EC515 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0548D8B72B242D97000EC515 /* PetProduct.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetProduct.xcdatamodel; sourceTree = "<group>"; };
 		05656D9A2B232204002AF0BA /* AdminSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSuccessViewController.swift; sourceTree = "<group>"; };
 		05656D9C2B232300002AF0BA /* CustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
 		05656D9E2B232344002AF0BA /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				05656DA42B232407002AF0BA /* FormAddDataAdminViewController.swift */,
 				05656DA62B232430002AF0BA /* EditTableDataViewController.swift */,
 				0548D8B22B2333AB000EC515 /* data.swift */,
+				0548D8B62B242D97000EC515 /* PetProduct.xcdatamodeld */,
 			);
 			path = MMS_LecProject;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				05E9EEE92B2163AB00C5E7C8 /* MMS_LecProject.xcdatamodeld in Sources */,
 				05E9EEF82B218F7800C5E7C8 /* RegisterViewController.swift in Sources */,
 				05E9EEF62B218F4900C5E7C8 /* LoginViewController.swift in Sources */,
+				0548D8B82B242D97000EC515 /* PetProduct.xcdatamodeld in Sources */,
 				05656DA12B23237B002AF0BA /* ProductTableViewCell.swift in Sources */,
 				05E9EEE12B2163AB00C5E7C8 /* SceneDelegate.swift in Sources */,
 				05656D9F2B232344002AF0BA /* AdminViewController.swift in Sources */,
@@ -453,6 +457,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		0548D8B62B242D97000EC515 /* PetProduct.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0548D8B72B242D97000EC515 /* PetProduct.xcdatamodel */,
+			);
+			currentVersion = 0548D8B72B242D97000EC515 /* PetProduct.xcdatamodel */;
+			path = PetProduct.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		05E9EEE72B2163AB00C5E7C8 /* MMS_LecProject.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

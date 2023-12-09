@@ -6,18 +6,18 @@
 //
 
 import Foundation
-enum CategoryGame: String {
-    case adventure = "Adventure"
-    case horror = "Horror"
-    case puzzle = "Puzzle"
-    case sport  = "Sport"
-    case FPS = "FPS"
+enum CategoryPet: String {
+    case tools = "Tools"
+    case food = "Food"
+    case drink = "Drink"
+    case medicine  = "Medicine"
+    case pet = "Pet"
 }
 
 struct dataItem{
     var priceProduct: Int
     var titleProduct: String
-    var categoryProduct: CategoryGame
+    var categoryProduct: CategoryPet
     var description: String
     var imageProduct: String
 }

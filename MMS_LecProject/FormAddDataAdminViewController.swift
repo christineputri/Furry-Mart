@@ -14,13 +14,13 @@ class FormAddDataAdminViewController: UIViewController, UIImagePickerControllerD
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    var delegate: controlGameProduct?
+    var delegate: controlPetProduct?
     
-    var arrGameProduct = [dataItem]()
+    var arrPetProduct = [dataItem]()
     var context: NSManagedObjectContext!
     
     @IBOutlet weak var imageProduct: UIImageView!
-    var imageTemp = "mobile_legend"
+    var imageTemp = "golden-retriever"
     
     @IBAction func addDataToDatabase(_ sender: Any) {
         if(titleTextField.text!.isEmpty && descriptionTextField.text!.isEmpty && (Int(priceTextField.text!) ?? 0 <= 0) && categoryTextField.text!.isEmpty){
@@ -43,15 +43,15 @@ class FormAddDataAdminViewController: UIViewController, UIImagePickerControllerD
         let description = descriptionTextField.text!
         let price = Int(priceTextField.text!)
         let category = categoryTextField.text!
-        let image = "mobile_legend"
+        let image = "golden-retriever"
         
-        let entity = NSEntityDescription.entity(forEntityName: "GameProduct", in: context)
-        let newGameProduct = NSManagedObject(entity: entity!, insertInto: context)
-        newGameProduct.setValue(title, forKey: "productName")
-        newGameProduct.setValue(description, forKey: "productDesc")
-        newGameProduct.setValue(price, forKey: "productPrice")
-        newGameProduct.setValue(category, forKey: "productCategory")
-        newGameProduct.setValue(image, forKey: "productImage")
+        let entity = NSEntityDescription.entity(forEntityName: "PetProduct", in: context)
+        let newPetProduct = NSManagedObject(entity: entity!, insertInto: context)
+        newPetProduct.setValue(title, forKey: "productName")
+        newPetProduct.setValue(description, forKey: "productDesc")
+        newPetProduct.setValue(price, forKey: "productPrice")
+        newPetProduct.setValue(category, forKey: "productCategory")
+        newPetProduct.setValue(image, forKey: "productImage")
         
         do {
             try context.save()
