@@ -9,8 +9,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailFieldLogin: UITextField!
     @IBOutlet weak var passwordFieldLogin: UITextField!
-    
-    
+
+
 //    handle = Auth.auth().addStateDidChangeListener { auth, user in
 //      // ...
 //    }
@@ -24,19 +24,24 @@ class LoginViewController: UIViewController {
             return
         }
 
-//        Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
-//            guard let self = self else { return }
-//
-//            if let error = error {
-//                self.alertAction(title: "Login Error", message: error.localizedDescription)
-//            } else {
-//                if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-//                   let userData = appDelegate.userData {
-//                    print("Logged in with user data:", userData)
-//                }
-//            }
-//        }
-        
+        Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
+            guard let self = self else { return }
+
+            if let error = error {
+                self.alertAction(title: "Login Error", message: error.localizedDescription)
+            } else {
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+                   let userData = appDelegate.userData {
+                    print("Logged in with user data:", userData)
+                }
+            }
+            
+            if let nextView = self.storyboard?.instantiateViewController(identifier: "adminView") {
+                let homeView = nextView as! AdminViewController
+                self.navigationController?.setViewControllers([homeView], animated: true)
+            }
+        }
+
     }
 
     @IBAction func moveToRegister(_ sender: Any) {

@@ -49,7 +49,12 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
             let result = try context.fetch(request) as! [NSManagedObject]
             
             for data in result {
-                arr.append(dataItem(priceProduct: data.value(forKey: "productPrice") as! Int, titleProduct: data.value(forKey: "productName") as! String, categoryProduct: CategoryPet(rawValue: data.value(forKey: "productCategory") as! CategoryPet.RawValue) ?? CategoryPet.pet, description: data.value(forKey: "productDesc") as! String, imageProduct: data.value(forKey: "productImage") as! String))
+                arr.append(dataItem(
+                    priceProduct: data.value(forKey: "productPrice") as! Int,
+                    titleProduct: data.value(forKey: "productName") as! String,
+                    categoryProduct: CategoryPet(rawValue: data.value(forKey: "productCategory") as! CategoryPet.RawValue) ?? CategoryPet.pet,
+                    description: data.value(forKey: "productDesc") as! String,
+                    imageProduct: data.value(forKey: "productImage") as! String))
             }
             
             tableViewAdmin.reloadData()
@@ -76,8 +81,8 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func logoutBtn(_ sender: Any) {
         //self.navigationController?.popToRootViewController(animated: true)
-        if let nextView = storyboard?.instantiateViewController(identifier: "rootView") {
-            let rootView = nextView as! ViewController
+        if let nextView = storyboard?.instantiateViewController(identifier: "registerView") {
+            let rootView = nextView as! RegisterViewController
             navigationController?.setViewControllers([rootView], animated: true)
         }
     }

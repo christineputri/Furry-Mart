@@ -2,10 +2,16 @@ import UIKit
 import CoreData
 import Firebase
 
+protocol RegisterViewControllerDelegate: AnyObject {
+    func registrationDidComplete()
+}
+
 class RegisterViewController: UIViewController {
 
     var userData: [String] = []
     var context: NSManagedObjectContext!
+
+    weak var delegate: RegisterViewControllerDelegate?
 
     @IBOutlet weak var nameFieldRegister: UITextField!
     @IBOutlet weak var emailFieldRegister: UITextField!
@@ -70,12 +76,8 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { [self] (firebaseResult, error) in
             if let e = error {
                 print("Firebase authentication error: \(e.localizedDescription)")
-                // Handle authentication error (e.g., show an alert)
-                return
+//                return
             } else {
-                // Authentication successful, continue with your registration logic
-
-                // Store user data in the AppDelegate
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                     appDelegate.userData = [
                         "name": username!,
