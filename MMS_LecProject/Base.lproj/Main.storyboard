@@ -600,7 +600,7 @@
                                     <action selector="logoutBtn:" destination="ahA-nw-7Jj" eventType="touchUpInside" id="aKY-CH-GpD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Admin Pavel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7C-LF-53K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7C-LF-53K">
                                 <rect key="frame" x="25" y="113.33333333333333" width="343" height="23.999999999999986"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="u43-kH-dCj"/>
