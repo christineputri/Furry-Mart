@@ -30,16 +30,14 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)-> UITableViewCell.EditingStyle{
         return.delete
     }
+    
     func tableView(_ tableView:UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         tableView.beginUpdates()
         arr.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
     }
-    
-    
-    
-    
+          
     @IBOutlet weak var tableViewAdmin: UITableView!
     
     var arr: [dataItem] = []
@@ -85,7 +83,6 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
-        
         tableViewAdmin.delegate = self
         tableViewAdmin.dataSource = self
         
