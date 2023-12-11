@@ -67,10 +67,8 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
                     description: data.value(forKey: "productDesc") as! String,
                     imageProduct: data.value(forKey: "productImage") as! String))
             }
-            
             tableViewAdmin.reloadData()
         } catch {
-            print("Add error pas di bagian load data")
         }
     }
     
@@ -79,7 +77,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
         initData()
         tableViewAdmin.dataSource = self
         tableViewAdmin.delegate = self
-        namaAdmin.text = "Hello, Admin \(nama ?? "Christine")"
+        namaAdmin.text = "Hello, Admin"
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
