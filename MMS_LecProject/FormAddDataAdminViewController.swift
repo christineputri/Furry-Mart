@@ -20,7 +20,7 @@ class FormAddDataAdminViewController: UIViewController, UIImagePickerControllerD
     var context: NSManagedObjectContext!
     
     @IBOutlet weak var imageProduct: UIImageView!
-    var imageTemp = "golden-retriever"
+    var imageTemp = "husky"
     
     @IBAction func addDataToDatabase(_ sender: Any) {
         if(titleTextField.text!.isEmpty && descriptionTextField.text!.isEmpty && (Int(priceTextField.text!) ?? 0 <= 0) && categoryTextField.text!.isEmpty){
@@ -43,7 +43,7 @@ class FormAddDataAdminViewController: UIViewController, UIImagePickerControllerD
         let description = descriptionTextField.text!
         let price = Int(priceTextField.text!)
         let category = categoryTextField.text!
-        let image = "golden-retriever"
+        let image = "husky"
         
         let entity = NSEntityDescription.entity(forEntityName: "PetProduct", in: context)
         let newPetProduct = NSManagedObject(entity: entity!, insertInto: context)

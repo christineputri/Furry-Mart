@@ -61,7 +61,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             for data in result {
                 arr.append(dataItem(
-                    priceProduct: data.value(forKey: "productPrice") as! Int,
+                    priceProduct: data.value(forKey: "productPrice") as? Int ?? 1000,
                     titleProduct: data.value(forKey: "productName") as! String,
                     categoryProduct: CategoryPet(rawValue: data.value(forKey: "productCategory") as! CategoryPet.RawValue) ?? CategoryPet.pet,
                     description: data.value(forKey: "productDesc") as! String,
