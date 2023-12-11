@@ -94,10 +94,19 @@ class AdminViewController: UIViewController, UITableViewDataSource, UITableViewD
             navigationController?.setViewControllers([rootView], animated: true)
         }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "edit_cell") as? EditTableDataViewController{
             vc.dataCellTable = arr[indexPath.row]
+            vc.updateCallback = { updatedDataItem in
+                        // Update your array with the modified data item
+                self.arr[indexPath.row] = updatedDataItem
+
+                        // Reload the row after the data has been updated
+                        tableView.reloadRows(at: [indexPath], with: .automatic)
+                    }
             self.navigationController?.pushViewController(vc, animated: true)
+            loadData()
         }
     }
 }

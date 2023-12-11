@@ -1,10 +1,3 @@
-//
-//  EditTableDataViewController.swift
-//  MMS_LecProject
-//
-//  Created by prk on 08/12/23.
-//
-
 import UIKit
 import CoreData
 
@@ -17,6 +10,7 @@ class EditTableDataViewController: UIViewController {
     @IBOutlet weak var imageUpdateData: UIImageView!
     
     var dataCellTable: dataItem?
+    var updateCallback: ((dataItem) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,23 +22,29 @@ class EditTableDataViewController: UIViewController {
     }
     
     @IBAction func onSavedBtn(_ sender: Any) {
-        // Memeriksa apakah semua bidang telah diisi
-                guard let title = titleUpdateData.text, !title.isEmpty,
-                      let desc = descUpdateData.text, !desc.isEmpty,
-                      let priceTextField = priceUpdateData.text, let priceTextField = Double(priceTextField),
-                      let category = categoryUpdateData.text, !category.isEmpty,
-                      let _ = imageUpdateData.image else {
-                    // Jika ada bidang yang belum diisi, tampilkan pesan kesalahan atau tindakan yang sesuai
-                    showAlert(message: "Pease")
-                    return
-                }
-                
-                // Semua bidang telah diisi, lanjut ke Admin Success View Controller
-                if let nextView = storyboard?.instantiateViewController(identifier: "success_page") {
-                    let rootView = nextView as! AdminSuccessViewController
-                    navigationController?.setViewControllers([rootView], animated: true)
-                }
-            }
+        guard let title = titleUpdateData.text, !title.isEmpty,
+              let desc = descUpdateData.text, !desc.isEmpty,
+              let priceTextField = priceUpdateData.text, let price = Int(priceTextField),
+              let category = categoryUpdateData.text, !category.isEmpty else {
+            showAlert(message: "Error data saved")
+            return
+        }
+        
+        // Update properties of dataCellTable
+        dataCellTable?.titleProduct = title
+        dataCellTable?.description = desc
+        dataCellTable?.priceProduct = Int(price)
+        dataCellTable?.categoryProduct = CategoryPet(rawValue: category) ?? .pet
+        dataCellTable?.imageProduct = "golden-retreiver"
+        
+        //        if let nextView = storyboard?.instantiateViewController(identifier: "success_page") {
+        //            let rootView = nextView as! AdminSuccessViewController
+        //            navigationController?.setViewControllers([rootView], animated: true)
+        //        }
+        // Call the update callback with the updated data
+        updateCallback?(dataCellTable!)
+        
+    }
             
             // Metode untuk menampilkan pesan kesalahan
             private func showAlert(message: String) {
