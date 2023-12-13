@@ -30,7 +30,6 @@ class EditTableDataViewController: UIViewController {
             return
         }
         
-        // Update properties of dataCellTable
         dataCellTable?.titleProduct = title
         dataCellTable?.description = desc
         dataCellTable?.priceProduct = Int(price)
@@ -41,7 +40,6 @@ class EditTableDataViewController: UIViewController {
         //            let rootView = nextView as! AdminSuccessViewController
         //            navigationController?.setViewControllers([rootView], animated: true)
         //        }
-        // Call the update callback with the updated data
         updateCallback?(dataCellTable!)
         
     }

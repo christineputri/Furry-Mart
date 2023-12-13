@@ -41,7 +41,7 @@ class FormAddDataAdminViewController: UIViewController, UIImagePickerControllerD
     func createData() {
         let title = titleTextField.text!
         let description = descriptionTextField.text!
-        let price = Int(priceTextField.text!)
+        let price = Int(priceTextField.text ?? "1000")
         let category = categoryTextField.text!
         let image = "husky"
         
